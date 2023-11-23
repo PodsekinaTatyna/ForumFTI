@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Сообщество инженерно-технического института</title>
+    <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  </head>
+  <body>
+    <div class="header">
+      <div class="logo">
+            <a href="/Home/Index" title="На главную"><img class="logo-img" src="~/images/Logo.png" alt="Siti" /></a>
+            <a href="/Home/Index" title="На главную">Сообщество физико-технического института</a>
+      </div>
+
+      <ul>
+        <li><a href="/Home/Index" title="На главную">Главная</a></li>
+        <li><a href="#" title="Перейти к обсуждениям">Обсуждения</a></li>
+        <li><a href="#" title="Открыть новости">Новости</a></li>
+            <li><a href="#" title="Открыть ссылки">Полезные ссылки</a></li>
+      </ul>
+      <div class="button-header">
+        <button class="button" id="click-to-hide" type="button" name="button">Войти</button>
+
+            <a href="/Home/Register"><button class="button" type="submit" name="button">Регистрация</button></a>
+
+      </div>
+    </div>
+
+  <section class="wrapper" style="display: none;">
+    <div class="login-form" >
+      <div class="title">Авторизация</div>
+      <label id="email">
+        <input type="text" />
+                <span>Почта</span>
+      </label>
+      <label id="password">
+        <input type="password" />
+                <span>Пароль</span>
+      </label>
+      <div class="login-button disable">Войти</div> 
+    </div>
+    <div class="overlay"></div>
+        
+    <script src="~/js/login_script.js"></script>
+    </section>
+
+    <main>
+        @RenderBody()
+    </main>
+
+    <footer>
+        <div>
+            <a href="#"><img src="~/images/icon-telegram.png" alt="Телеграм" /></a>
+            <a href="#"><img src="~/images/icon-mail-ru.png" alt="Почта" /></a>
+            <a href="#"><img src="~/images/icon-vk.png" alt="Вконтакте" /></a>
+        </div>
+        <div class="social-network">
+            <p>Телефон: +(373)777-77-777</p>
+            <p>© siti.ru, 2023 | Физико-технический институт</p>
+        </div>
+    </footer>
+</body>
+</html>

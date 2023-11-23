@@ -1,0 +1,10 @@
+﻿@model List<ForumFTI.Domain.Models.Section>
+
+@{
+    ViewData["Title"] = "Главаная страница сайта";
+}
+
+@foreach(var sect in Model){
+    <p>@sect.Id</p>
+    <p>@sect.Name</p>
+}
