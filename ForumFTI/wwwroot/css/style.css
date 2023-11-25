@@ -58,34 +58,34 @@ body {
     text-decoration: none;
 }
 
-    .header a:hover {
-        color: #000;
-    }
+.header a:hover {
+    color: #000;
+}
 
 .button-header {
     display: flex;
     align-items: center;
 }
 
-    .button-header .button {
-        border: 1px solid #101963;
-        background-color: transparent;
-        height: fit-content;
-        padding: 7px 14px;
-        margin: 0 10px;
-        border-radius: 8px;
-        color: #101963;
-        font-weight: 500;
-        font-size: 13px;
-        line-height: 152%;
-        cursor: pointer;
-        transition: all 250ms ease;
-    }
+.button-header .button {
+    border: 1px solid #101963;
+    background-color: transparent;
+    height: fit-content;
+    padding: 7px 14px;
+    margin: 0 10px;
+    border-radius: 8px;
+    color: #101963;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 152%;
+    cursor: pointer;
+    transition: all 250ms ease;
+}
 
-    .button:hover {
-        color: #fff;
-        background-color: #101963;
-    }
+.button:hover {
+    color: #fff;
+    background-color: #101963;
+}
 
 /* контент */
 .conteiner-row {
@@ -109,34 +109,34 @@ body {
     justify-content: center;
 }
 
-    .item-text h4 {
-        border-radius: 5px;
-        background: #f2f6fa;
-        padding: 5px 10px;
-        margin-bottom: 20px;
-        width: fit-content;
-        color: #2e363e;
-        font-size: 12px;
-        font-weight: 400;
-        line-height: 150%;
-        letter-spacing: 1.5px;
-        text-transform: uppercase;
-    }
+.item-text h4 {
+    border-radius: 5px;
+    background: #f2f6fa;
+    padding: 5px 10px;
+    margin-bottom: 20px;
+    width: fit-content;
+    color: #2e363e;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 150%;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
 
-    .item-text h1 {
-        margin-bottom: 20px;
-        color: #2e363e;
-        font-size: 40px;
-        font-weight: 700;
-        line-height: 45px;
-    }
+.item-text h1 {
+    margin-bottom: 20px;
+    color: #2e363e;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 45px;
+}
 
-    .item-text p {
-        color: #434b53;
-        font-size: 20px;
-        font-weight: 400;
-        line-height: 143%;
-    }
+.item-text p {
+    color: #434b53;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 143%;
+}
 
 .item-img {
     height: fit-content;
@@ -161,8 +161,9 @@ footer {
 }
 
 
-/* форма входа */
-.wrapper {
+/* форма входа и регистрации*/
+.wrapper-login,
+.wrapper-register {
     display: flex;
     width: 100%;
     height: 100%;
@@ -173,24 +174,16 @@ footer {
     z-index: 100;
 }
 
-.overlay {
+.overlay-login,
+.overlay-register {
     position: absolute;
     width: 100%;
     height: 100%;
     z-index: 1;
 }
+
+.login-form,
 .register-form {
-    justify-self: center;
-    position: fixed;
-    margin-top: 80px;
-    display: grid;
-    padding: 50px;
-    width: fit-content;
-    background-color: #fff;
-    border-radius: 16px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
-}
-    .login-form {
     justify-self: center;
     position: fixed;
     margin-top: 80px;
@@ -203,7 +196,7 @@ footer {
     z-index: 3;
 }
 
-.title {
+.form_title {
     font-size: 24px;
     margin-bottom: 16px;
 }
@@ -213,7 +206,7 @@ label {
     margin-bottom: 16px;
 }
 
-.wrapper input {
+input {
     outline: none;
     height: 40px;
     width: 100%;
@@ -222,19 +215,19 @@ label {
     border-radius: 4px;
 }
 
-    .wrapper input:focus,
-    label.filed input {
-        border-color: #1a50b6;
-    }
+input:focus,
+label.filed input {
+    border-color: #1a50b6;
+}
 
-        .wrapper input:focus + span,
-        label.filed span {
-            top: -8px;
-            left: 8px;
-            font-size: 12px;
-            color: #1a50b6;
-            background-color: #fff;
-        }
+input:focus + span, 
+input:not(:placeholder-shown) ~ span{
+    top: -8px;
+    left: 8px;
+    font-size: 12px;
+    color: #1a50b6;
+    background-color: #fff;
+}
 
 span {
     cursor: text;
@@ -246,7 +239,8 @@ span {
     padding: 0 4px;
 }
 
-.login-button {
+.login-button,
+.register-button {
     cursor: pointer;
     justify-self: center;
     background-color: #1a50b6;
@@ -257,86 +251,37 @@ span {
     transition: all 0.3s ease-in-out;
 }
 
-    .login-button.disable {
-        pointer-events: none;
-        background-color: #ccc;
-    }
-
-
-
-/* Регистрация */
-.form-conteiner {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 100px;
-    margin-top: 100px;
+.login-button.disable,
+.register-button.disable {
+    pointer-events: none;
+    background-color: #ccc;
 }
 
-    .form-conteiner input {
-        height:45px;
-        width:100%;
-        font-size:14px;
-        line-height:16px;
-        border: 2px solid #e9f2ff;
-        border-radius : 5px;
-    }
-        .form-conteiner input:focus{
-            outline: none;
-            border: 2px solid #c1d9fd;
 
-        }
-.register-form-conteiner {
-            max-width: 415px;
-            width: 100%;
-            background: #ffffff;
-            box-shadow: 0px 1px 10px rgba(217,229,255);
-            border-radius: 20px;
-            padding: 30px 38px;
-}
-
-.form-title{
-    color: #305070;
-    font-weight:500;
-    font-size: 20px;
-    line-height: 38px;
-}
-
-.form-field{
-    margin-bottom:13px;
-}
-
-.button-register{
-    font-weight:bold;
-    font-size:14px;
-    display:block;
-    height:45px;
-    background: #247fff;
-    border-radius: 5px;
-    color:#fff;
-    text-transform:uppercase;
-    text-align:center;
-    line-height: 45px;
-    cursor: pointer;
-}
-
-.button-register:hover{
-    background-color: #0d6cf2;
-}
-
-a.button-register{
-    text-decoration:none;
-}
 
 .button-google {
-    color: #c6cfdc;
-    background: #f2f6ff;
+    font-weight: bold;
+    font-size: 14px;
+    display: block;
+    height: 45px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 45px;
+    cursor: pointer;
+    color: #434b53;
+    background: #e2e6f0;
+
 }
 
-    .button-google:hover {
-        color: #fff;
-        background: ##e2e6f0;
-    }
+a.button-google {
+    text-decoration: none;
+}
+
+.button-google:hover {
+    color: #c6cfdc;
+    background: #434b53;
+}
 
 .divider{
     font-weight: 500;

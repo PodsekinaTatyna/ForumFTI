@@ -1,51 +1,47 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿document.addEventListener('DOMContentLoaded', function () {
+    const form_login = {
+        email: document.getElementById("login_email"),
+        password: document.getElementById("login_password"),
+        button: document.querySelector(".login-button"),
+        inputs: document.querySelectorAll(".wrapper-login input"),
+    };
 
-// Write your JavaScript code.
+    const form_register = {
+        login: document.getElementById("register_login"),
+        email: document.getElementById("register_email"),
+        password: document.getElementById("register_password"),
+        confirm_password: document.getElementById("register_confirm_password"),
+        button: document.querySelector(".register-button"),
+        inputs: document.querySelectorAll(".wrapper-register input"),
+    };
 
-const form = {
-  email: document.getElementById("email"),
-  password: document.getElementById("password"),
-  button: document.querySelector(".login-button"),
-  inputs: document.querySelectorAll("input"),
-};
+    function toggleDisplay(element) {
+        if (element.style.display === "none") {
+            element.style.display = "flex";
+        } else {
+            element.style.display = "none";
+        }
+    }
 
-document
-  .getElementById("click-to-hide")
-  .addEventListener("click", hiddenOpen_Closeclick);
-document
-  .querySelector(".overlay")
-  .addEventListener("click", hiddenOpen_Closeclick);
+    function checkForm(form, button) {
+        const values = Array.from(form.inputs).map(input => input.value);
+        if (values.every(value => value.trim() !== "")) {
+            button.classList.remove("disable");
+        } else {
+            button.classList.add("disable");
+        }
+    }
 
-function handleInput(e, name) {
-  const { value } = e.target;
-  if (value) {
-    form[name].classList.add("filed");
-  } else {
-    form[name].classList.remove("filed");
-  }
-}
+    function handleInput(event, form, button) {
+        checkForm(form, button);
+    }
 
-function checkForm() {
-  const email = form.email.getElementsByTagName("input")[0].value;
-  const password = form.password.getElementsByTagName("input")[0].value;
+    form_login.inputs.forEach(input => input.addEventListener("input", (e) => handleInput(e, form_login, form_login.button)));
+    form_register.inputs.forEach(input => input.addEventListener("input", (e) => handleInput(e, form_register, form_register.button)));
 
-  if (email && password) {
-    form.button.classList.remove("disable");
-  } else {
-    form.button.classList.add("disable");
-  }
-}
+    document.getElementById("click-to-login").addEventListener("click", () => toggleDisplay(document.querySelector(".wrapper-login")));
+    document.querySelector(".overlay-login").addEventListener("click", () => toggleDisplay(document.querySelector(".wrapper-login")));
 
-function hiddenOpen_Closeclick() {
-  let x = document.querySelector(".wrapper");
-  if (x.style.display == "none") {
-    x.style.display = "grid";
-  } else {
-    x.style.display = "none";
-  }
-}
-
-form.email.oninput = (e) => handleInput(e, "email");
-form.password.oninput = (e) => handleInput(e, "password");
-form.inputs.forEach((e) => e.addEventListener("input", checkForm));
+    document.getElementById("click-to-register").addEventListener("click", () => toggleDisplay(document.querySelector(".wrapper-register")));
+    document.querySelector(".overlay-register").addEventListener("click", () => toggleDisplay(document.querySelector(".wrapper-register")));
+});

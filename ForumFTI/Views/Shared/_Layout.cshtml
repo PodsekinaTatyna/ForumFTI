@@ -22,30 +22,64 @@
             <li><a href="#" title="Открыть ссылки">Полезные ссылки</a></li>
       </ul>
       <div class="button-header">
-        <button class="button" id="click-to-hide" type="button" name="button">Войти</button>
+        <button class="button" id="click-to-login" type="button" name="button">Войти</button>
 
-            <a href="/Home/Register"><button class="button" type="submit" name="button">Регистрация</button></a>
+        <button class="button" id="click-to-register" type="button" name="button">Регистрация</button>
 
       </div>
     </div>
 
-  <section class="wrapper" style="display: none;">
+  <section class="wrapper-login" style="display: none;">
     <div class="login-form" >
-      <div class="title">Авторизация</div>
-      <label id="email">
-        <input type="text" />
+      <div class="form_title">Авторизация</div>
+        <label id="login_email">
+        <input type="text" placeholder=" " />
                 <span>Почта</span>
       </label>
-      <label id="password">
-        <input type="password" />
+      <label id="login_password">
+        <input type="password"  placeholder=" " />
                 <span>Пароль</span>
       </label>
       <div class="login-button disable">Войти</div> 
     </div>
-    <div class="overlay"></div>
+
+        <div class="overlay-login"></div>
         
-    <script src="~/js/login_script.js"></script>
+   </section>
+
+    <section class="wrapper-register" style="display: none;">
+        <div class="register-form">
+            <div class="form_title">Регистрация</div>
+
+            <label id="register_login">
+                <input type="text" placeholder=" " />
+                <span>Логин</span>
+            </label>
+            <label id="register_email">
+                <input type="text" placeholder=" " />
+                <span>Почта</span>
+            </label>
+            <label id="register_password">
+                <input type="password" placeholder=" " />
+                <span>Пароль</span>
+            </label>
+            <label id="register_confirm_password">
+                <input type="password" placeholder=" " />
+                <span>Подтвердить</span>
+            </label>
+
+            <div class="form-button">
+                <div class="register-button disable">Зарегистрироваться</div>
+                <div class="divider">ИЛИ</div>
+                <a href="#" class="google-register button-google">Google</a>
+            </div>
+        </div>
+        <div class="overlay-register"></div>
+
     </section>
+
+
+
 
     <main>
         @RenderBody()
@@ -62,5 +96,7 @@
             <p>© siti.ru, 2023 | Физико-технический институт</p>
         </div>
     </footer>
+
+    <script src="~/js/login_script.js"></script>
 </body>
 </html>
