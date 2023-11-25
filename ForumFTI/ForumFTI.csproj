@@ -19,6 +19,7 @@
   <ItemGroup>
     <ProjectReference Include="..\ForumFTI.DAL\ForumFTI.DAL.csproj" />
     <ProjectReference Include="..\ForumFTI.Domain\ForumFTI.Domain.csproj" />
+    <ProjectReference Include="..\ForumFTI.Service\ForumFTI.Service.csproj" />
   </ItemGroup>
 
 </Project>

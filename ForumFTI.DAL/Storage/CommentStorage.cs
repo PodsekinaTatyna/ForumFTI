@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ForumFTI.DAL.Storage
 {
-    public class CommentStorage : IBaseInteface<Comment>
+    public class CommentStorage : IBaseStorage<Comment>
     {
         public readonly ApplicationContext _db;
 

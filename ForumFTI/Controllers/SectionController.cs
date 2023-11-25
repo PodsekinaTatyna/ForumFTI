@@ -1,26 +1,26 @@
-﻿using ForumFTI.DAL.Interfaces;
-using ForumFTI.Domain.Models;
-using ForumFTI.Models;
+﻿using ForumFTI.Service.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 
 namespace ForumFTI.Controllers
 {
     public class SectionController : Controller
-    {
-        public readonly IBaseInteface<Section> baseInteface;
+    {     
 
-        public SectionController(IBaseInteface<Section> baseInteface)
+        private readonly ISectionService _sectionService;
+
+        public SectionController(ISectionService sectionService)
         {
-            this.baseInteface = baseInteface;
+            _sectionService = sectionService;
         }
 
         [HttpGet]
         public async Task<IActionResult> GetSection()
         {
-            var respouns = await baseInteface.GetAll();
 
-            return View(respouns);
+            var response = await _sectionService.GetSections();
+
+            return View(response.Data);
         }
     }
 }

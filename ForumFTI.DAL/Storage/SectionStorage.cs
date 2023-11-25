@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ForumFTI.DAL.Storage
 {
-    public class SectionStorage : IBaseInteface<Section>
+    public class SectionStorage : IBaseStorage<Section>
     {
 
         public readonly ApplicationContext _db;

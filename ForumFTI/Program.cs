@@ -3,6 +3,8 @@ using ForumFTI.DAL.Interfaces;
 using ForumFTI.DAL.Storage;
 using ForumFTI.Domain.Models;
 using ForumFTI.DAL;
+using ForumFTI.Service.Interfaces;
+using ForumFTI.Service.Realization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,7 +16,8 @@ string connection = builder.Configuration.GetConnectionString("DefaultConnection
 // добавляем контекст ApplicationContext в качестве сервиса в приложение
 builder.Services.AddDbContext<ApplicationContext>(options => options.UseNpgsql(connection));
 
-builder.Services.AddScoped<IBaseInteface<Section>, SectionStorage>();
+builder.Services.AddScoped<IBaseStorage<Section>, SectionStorage>();
+builder.Services.AddScoped<ISectionService, SectionService>();
 
 var app = builder.Build();
 

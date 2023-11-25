@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ForumFTI.DAL.Interfaces
 {
-    public interface IBaseInteface<T>
+    public interface IBaseStorage<T>
     {
 
         void Add(T item);
